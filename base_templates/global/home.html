@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mercado</title>
+
+    {% include 'mercado_template/partials/head.html'%}  <!--Incluir o caminho do head.html-->
+    
+    <title>{% block title%}{% endblock title%}Teste</title>
 </head>
 <body>
-    <h1>Primeiro template do base</h1>
+    {% include 'mercado_template/partials/formulario.html'%}
+    
+    {% include 'mercado_template/partials/footer.html'%}
+
+    {% include 'mercado_template/partials/excluir.html'%}
+
+    
 </body>
+   
 </html>

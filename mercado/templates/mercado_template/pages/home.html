@@ -1,79 +1,24 @@
 
-<!--{% load static %}-->
-
-<!DOCTYPE html>
-<html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css" integrity="sha512-8RxmFOVaKQe/xtg6lbscU9DU0IRhURWEuiI0tXevv+lXbAHfkpamD4VKFQRto9WgfOJDwOZ74c/s9Yesv3VvIQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css" integrity="sha512-pZlKGs7nEqF4zoG0egeK167l6yovsuL8ap30d07kA5AJUq+WysFlQ02DLXAmN3n0+H3JVz5ni8SJZnrOaYXWBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-        <!--<link rel="stylesheet" href="{% static "mercado_template/css/styles.css" %}"> -->
-        <!--<link rel="stylesheet" href="{% static "global/css-global/global-styles.css" %}"> -->  <!--em desenvolvimento por Rafael-->
-
-        <title>Mercado</title>
-    
-    <style type= "text/css">
-        body {
-            background-color: rgb(196, 193, 193);
-        }
-        div {
-            width: 100%;
-            height: 100%;
-            border: 0px solid gray;
-            padding: 10px 20px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            background-color: #eed5b7;
-        
-        }
+{% extends 'global/home.html' %}
 
 
-    </style>
-    
-    
-    
-    </head>
+    {% block content %}
+        {% include 'templates/mercado_templates/partials/head.html'%}
+    {% endblock content %}
 
-<body>
-    <div class="superior">
-    <h1 class="topo"><i class="fa-sharp fa-solid fa-cart-shopping"></i> Bem vindo {{ name }} {{sobrenome}}</h1>
-    </div>
-    <div class="entrada-dados">
-    <form action= {% url "processa_formulario" %} method="get"> {% csrf_token %}
-        <label for="fname">Produto:</label>
-        <input type="text" id="prodname" name="produto"><br><br>
-        <label for="quantity">Quantidade:</label>
-        <input type="text" id="quantname" name="quantidade" min="0" max="10" step="1" value="1"><br><br>
-        <label for="lname">Categorias:</label>
-    
-<select id="categoria" name="categoria" size="1" multiple><br>
-  <option value="alimentos" selectd>Alimentos</option>
-  <option value="lacticinio">Lacticínio</option>
-  <option value="carnes">Carnes</option>
-  <option value="bebidas">Bebidas</option>
-  <option value="outros">Outros</option>
-</select><br><br>
+ 
 
-        <label for="pname">Preço:</label>
-        <input type="text" id="pname" name="preco">
-        <input type="submit" value="Enviar"><br>
-    </form >
+    {% block cont %}
+        {% include 'mercado_templates/partials/formulario.html'%}
+    {% endblock cont %}
 
-    <br>
-    <form action= {% url "itens" %} method="get"> {% csrf_token %}
-        <label for="pname">Visualizar Produtos:</label>
-        
-        <input type="submit" value="visualizar">
-    </form>
-    <br><br>
-    <!--<form action= {% url "excluir" %} method="get"> {% csrf_token %}
-        <label for="pname">Excluir Produtos:</label>
-        <input type="text" id="exname" name="excluir">
-        <input type="submit" value="Excluir"> -->  <!--em desenvolvimento por Rafael-->
-    </div>
-</body>
-</html>
+
+    {% block contfot %}
+         {% include 'mercado_templates/partials/footer.html'%}
+    {% endblock contfot %}
+
+    {% block contexcl %}
+         {% include 'mercado_templates/partials/excluir.html'%}
+    {% endblock contexcl %}
+
+

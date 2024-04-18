@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Supermercado
 from django.http import HttpResponse
-
+from django.shortcuts import redirect
 # Create your views here.
 
 def home(request):
@@ -28,8 +28,14 @@ def buscar_produto(request):
     return render(request,'mercado_template/partials/itens.html',itens)
 
 
-def excluir_produto(request):
-    return HttpResponse('itens excluidos') # em desenvolvimento
+def excluir_produto(request, id):
+    
+    produto = Supermercado.objects.get(id=id)
+    produto.delete()
+
+    return redirect(buscar_produto)
+   
+     
 
 
 def editar_produto(request):

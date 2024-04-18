@@ -1,0 +1,35 @@
+<div class="superior">
+    <h1 class="topo"><i class="fa-sharp fa-solid fa-cart-shopping"></i> Bem vindo {{ name }} {{sobrenome}}</h1>
+    </div>
+    <div class="entrada-dados">
+    <form action= {% url "processa_formulario" %} method="get"> {% csrf_token %}
+        <label for="fname">Produto:</label>
+        <input type="text" id="prodname" name="produto"><br><br>
+        <label for="quantity">Quantidade:</label>
+        <input type="text" id="quantname" name="quantidade" min="0" max="10" step="1" value="1"><br><br>
+        <label for="lname">Categorias:</label>
+    
+<select id="categoria" name="categoria" size="1" multiple><br>
+  <option value="alimentos" selectd>Alimentos</option>
+  <option value="lacticinio">Lacticínio</option>
+  <option value="carnes">Carnes</option>
+  <option value="bebidas">Bebidas</option>
+  <option value="outros">Outros</option>
+</select><br><br>
+
+        <label for="pname">Preço:</label>
+        <input type="text" id="pname" name="preco">
+        <input type="submit" value="Enviar"><br>
+    </form >
+
+    <br>
+    <form action= {% url "itens" %} method="get"> {% csrf_token %}
+        <label for="pname">Visualizar Produtos:</label>
+        
+        <input type="submit" value="visualizar">
+    </form>
+    
+    
+    </div>
+
+    
