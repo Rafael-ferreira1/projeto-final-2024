@@ -23,6 +23,7 @@
         <td>{{itens.preço}}</td>
         <form method="post">
         <td><a href="{% url 'excluindo' id=itens.id %}" >Excluir</a></td> 
+        <td><a href="{% url 'editar' id=itens.id %}" >Editar</a></td>
         </form>
         {% endfor %}
         </tr>

@@ -29,14 +29,37 @@ def buscar_produto(request):
 
 
 def excluir_produto(request, id):
-    
     produto = Supermercado.objects.get(id=id)
     produto.delete()
 
     return redirect(buscar_produto)
+
+def editar_produto(request, id):
+    produto = Supermercado.objects.get(id=id)
+        
+    return render(request, "mercado_template/partials/update.html", {"produto": produto})
+    
+
+def editar_produto_dois(request, id):
+    
+    novo_produto1 = request.GET.get('produto')
+    novo_produto2 = request.GET.get('quantidade')
+    novo_produto3 = request.GET.get('categoria')
+    novo_produto4 = request.GET.get('preço')
+    produto = Supermercado.objects.get(id=id)
+    
+    produto.produto = novo_produto1
+    produto.quantidade = novo_produto2
+    produto.categoria = novo_produto3
+    produto.preco = novo_produto4
+    produto.save()
+      
+    return redirect(buscar_produto)
+
+
+
+"https://www.youtube.com/watch?v=GGBzMpIAgz4&t=1657s"
    
      
 
 
-def editar_produto(request):
-    ...

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {{produto.id}} - {{ produto.produto}} - {{produto.categoria}}
+
+    <!---<form action= {% url "processa_formulario" %} method="get"> {% csrf_token %}
+        <input type="text" name="produto" value="{{produto.produto}}">
+        <input type="text" name="categoria" value="{{produto.categoria}}">
+        <button type="submit">Salvar</button>
+    </form >   -->
+
+
+    <form action= {% url "editarDois" produto.id  %} method="get"> {% csrf_token %} 
+        <label for="fname">Produto:</label>
+        <input type="text" id="prodname" name="produto" value="{{produto.produto}}"><br><br>
+        <label for="quantity">Quantidade:</label>
+        <input type="text" id="quantname" name="quantidade" min="0" max="10" step="1" value={{produto.quantidade}}><br><br>
+        <label for="lname">Categorias:</label>
+    
+<select id="categoria" name="categoria" size="1" multiple><br>
+  <option value="{{produto.categoria}}" selectd>{{produto.categoria}}</option>
+  <option value="alimentos">Alimentos</option>
+  <option value="lacticinio">Lacticínio</option>
+  <option value="carnes">Carnes</option>
+  <option value="bebidas">Bebidas</option>
+  <option value="outros">Outros</option>
+  
+
+</select><br><br>
+
+        <label for="pname">Preço:</label>
+        <input type="text" id="pname" name="preco" value="{{produto.preço}}">
+        <input type="submit" value="Enviar"><br>
+    </form >
+</body>
+</html>
