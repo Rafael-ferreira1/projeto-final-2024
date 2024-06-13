@@ -1,29 +1,28 @@
 
 {% extends 'global/home.html' %}
 
+    {%block title %}Home{%endblock title %}
 
     {% block content %}
         {% include 'templates/mercado_templates/partials/head.html'%}
     {% endblock content %}
 
- 
 
     {% block cont %}
         {% include 'mercado_templates/partials/formulario.html'%}
     {% endblock cont %}
 
-
-    {% block contfot %}
-         {% include 'mercado_templates/partials/footer.html'%}
-    {% endblock contfot %}
-
-    {% block contexcl %}
-         {% include 'mercado_templates/partials/excluir.html'%}
-    {% endblock contexcl %}
-
     {% block contedit %}
          {% include 'mercado_templates/partials/update.html'%}
     {% endblock contedit %}
+
+    {% block conteitens %}
+    {% include 'mercado_templates/partials/itens.html'%}
+{% endblock conteitens %}
+
+{% block contfot %}
+         {% include 'mercado_templates/partials/footer.html'%}
+    {% endblock contfot %}
 
 
 

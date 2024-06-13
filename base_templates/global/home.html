@@ -1,19 +1,28 @@
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 
-    {% include 'mercado_template/partials/head.html'%}  <!--Incluir o caminho do head.html-->
+    {% include 'mercado_template/partials/head.html'%}
     
-    <title>{% block title%}{% endblock title%}Teste</title>
+    <title>{% block title%}{% endblock title%}</title>
 </head>
 <body>
+    
+
+
     {% include 'mercado_template/partials/formulario.html'%}
     
-    {% include 'mercado_template/partials/footer.html'%}
+       
 
-    {% include 'mercado_template/partials/excluir.html'%}
+    
+    
 
     
 </body>
+<div>
+    {% include 'mercado_template/partials/footer.html'%}
+</div>
    
 </html>
